@@ -144,7 +144,7 @@ batman_1.save
 
 batman_2 = Movie.new
 batman_2["movie_title"] = "The Dark Knight"
-batman_2["move_year"] = "2008"
+batman_2["movie_year"] = "2008"
 batman_2["movie_rating"] = "PG-13"
 batman_2["studio_id"] = wb["id"]
 batman_2.save
@@ -164,7 +164,7 @@ new_role.save
 
 new_role = Role.new
 new_role["character"] = "Alfred"
-new_role["movie_id"] = batman_1"id"]
+new_role["movie_id"] = batman_1["id"]
 new_role["actor_id"] = mc["id"]
 new_role.save
 
@@ -255,7 +255,16 @@ puts ""
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
 
+movies = Movie.all
 
+for movie in movies
+    name = movie["movie_title"]
+    year = movie["movie_year"]
+    rated = movie["movie_rating"]
+    studio = Studio.find_by({"id" => movie["studio_id"]})
+    studioname = studio["studio_name"]
+    puts "#{name} #{year} #{rated} #{studioname}"
+end
 
 # Prints a header for the cast output
 puts ""
@@ -265,3 +274,14 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
+roles = Role.all
+
+for role in roles
+    movie = Movie.find_by({"id"  => role["movie_id"]})
+    movie_name = movie["movie_title"]
+    actor = Actor.find_by({"id" => role["actor_id"]})
+    actor_name = actor["actor_name"]
+    name = role["character"]
+    puts "#{movie_name}: #{actor_name} - #{name}"
+end
