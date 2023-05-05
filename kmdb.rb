@@ -80,9 +80,172 @@ Role.destroy_all
 # Generate models and tables, according to the domain model.
 # TODO!
 
+# Please refer to db/migrate and app/models that I created. 
+
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+
+wb = Studio.new
+wb["studio_name"] = "Warner Bros."
+wb.save
+
+cb = Actor.new
+cb["actor_name"] = "Christian Bale"
+cb.save
+
+mc = Actor.new
+mc["actor_name"] = "Michael Caine"
+mc.save
+
+ln = Actor.new
+ln["actor_name"] = "Liam Neeson"
+ln.save
+
+kh = Actor.new
+kh["actor_name"] = "Katie Holmes"
+kh.save
+
+go = Actor.new
+go["actor_name"] = "Gary Oldman"
+go.save
+
+hl = Actor.new
+hl["actor_name"] = "Heath Ledger"
+hl.save
+
+ae = Actor.new
+ae["actor_name"] = "Aaron Eckhart"
+ae.save
+
+mg = Actor.new
+mg["actor_name"] = "Maggie Gyllenhaal"
+mg.save
+
+th = Actor.new
+th["actor_name"] = "Tom Hardy"
+th.save
+
+jg = Actor.new
+jg["actor_name"] = "Joseph Gordon-Levitt"
+jg.save
+
+ah = Actor.new
+ah["actor_name"] = "Anne Hathaway"
+ah.save
+
+batman_1 = Movie.new
+batman_1["movie_title"] = "Batman Begins"
+batman_1["movie_year"] = "2005"
+batman_1["movie_rating"] = "PG-13"
+batman_1["studio_id"] = wb["id"]
+batman_1.save
+
+batman_2 = Movie.new
+batman_2["movie_title"] = "The Dark Knight"
+batman_2["move_year"] = "2008"
+batman_2["movie_rating"] = "PG-13"
+batman_2["studio_id"] = wb["id"]
+batman_2.save
+
+batman_3 = Movie.new
+batman_3["movie_title"] = "The Dark Knight Rises"
+batman_3["movie_year"] = "2012"
+batman_3["movie_rating"] = "PG-13"
+batman_3["studio_id"] = wb["id"]
+batman_3.save
+
+new_role = Role.new
+new_role["character"] = "Bruce Wayne"
+new_role["movie_id"] = batman_1["id"]
+new_role["actor_id"] = cb["id"]
+new_role.save
+
+new_role = Role.new
+new_role["character"] = "Alfred"
+new_role["movie_id"] = batman_1"id"]
+new_role["actor_id"] = mc["id"]
+new_role.save
+
+new_role = Role.new
+new_role["character"] = "Ra's Al Ghul"
+new_role["movie_id"] = batman_1["id"]
+new_role["actor_id"] = ln["id"]
+new_role.save
+
+new_role = Role.new
+new_role["character"] = "Rachel Dawes"
+new_role["movie_id"] = batman_1["id"]
+new_role["actor_id"] = kh["id"]
+new_role.save
+
+new_role = Role.new
+new_role["character"] = "Commissioner Gordon"
+new_role["movie_id"] = batman_1["id"]
+new_role["actor_id"] = go["id"]
+new_role.save
+
+new_role = Role.new
+new_role["character"] = "Bruce Wayne"
+new_role["movie_id"] = batman_2["id"]
+new_role["actor_id"] = cb["id"]
+new_role.save
+
+new_role = Role.new
+new_role["character"] = "Joker"
+new_role["movie_id"] = batman_2["id"]
+new_role["actor_id"] = hl["id"]
+new_role.save
+
+new_role = Role.new
+new_role["character"] = "Harvey Dent"
+new_role["movie_id"] = batman_2["id"]
+new_role["actor_id"] = ae["id"]
+new_role.save
+
+new_role = Role.new
+new_role["character"] = "Alfred"
+new_role["movie_id"] = batman_2["id"]
+new_role["actor_id"] = mc["id"]
+new_role.save
+
+new_role = Role.new
+new_role["character"] = "Rachel Dawes"
+new_role["movie_id"] = batman_2["id"]
+new_role["actor_id"] = mg["id"]
+new_role.save
+
+new_role = Role.new
+new_role["character"] = "Bruce Wayne"
+new_role["movie_id"] = batman_3["id"]
+new_role["actor_id"] = cb["id"]
+new_role.save
+
+new_role = Role.new
+new_role["character"] = "Commissioner Gordon"
+new_role["movie_id"] = batman_3["id"]
+new_role["actor_id"] = go["id"]
+new_role.save
+
+new_role = Role.new
+new_role["character"] = "Bane"
+new_role["movie_id"] = batman_3["id"]
+new_role["actor_id"] = th["id"]
+new_role.save
+
+new_role = Role.new
+new_role["character"] = "John Blake"
+new_role["movie_id"] = batman_3["id"]
+new_role["actor_id"] = jg["id"]
+new_role.save
+
+new_role = Role.new
+new_role["character"] = "Selina Kyle"
+new_role["movie_id"] = batman_3["id"]
+new_role["actor_id"] = ah["id"]
+new_role.save
+
 
 # Prints a header for the movies output
 puts "Movies"
@@ -91,6 +254,8 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+
+
 
 # Prints a header for the cast output
 puts ""
